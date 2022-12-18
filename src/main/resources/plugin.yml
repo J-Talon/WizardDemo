@@ -1,0 +1,9 @@
+name: WizardryDemo
+version: '${project.version}'
+main: me.camm.productions.wizardrydemo.WizardryDemo
+api-version: 1.16
+authors: [ CAMM_H87 ]
+description: Magic Testing
+commands:
+  chspell:
+    description: Change spell on a slot
