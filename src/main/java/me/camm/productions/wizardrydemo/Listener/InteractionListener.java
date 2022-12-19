@@ -73,8 +73,13 @@ public class InteractionListener implements Listener {
 
     //sends a title to the player about what spell they have selected
     private void notifySelection(Player player, UUID id) {
+        SpellType type = spells.get(id)[casterSelection.get(id)];
+        int pos = casterSelection.get(id);
+
+        String name = type == null ? "None" : type.name();
+
         sendActionbar(player, 0, TICK_TIME, 0,
-                ChatColor.GOLD+""+spells.get(id)[casterSelection.get(id)]+"");
+                ChatColor.GOLD+""+name+"["+pos+"]");
     }
 
 
@@ -124,7 +129,7 @@ public class InteractionListener implements Listener {
                 */
             }
             catch (Exception e) {
-                sendActionbar(player, 0,TICK_TIME,0,ChatColor.GREEN+""+ChatColor.BOLD+"None");
+                sendActionbar(player, 0,TICK_TIME,0,ChatColor.GREEN+""+ChatColor.BOLD+"++None++");
             }
 
             return;

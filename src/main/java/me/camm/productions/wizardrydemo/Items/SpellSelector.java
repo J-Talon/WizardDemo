@@ -43,7 +43,7 @@ public class SpellSelector {
     //this method rounds a number to the nearest 9.
     //Inventory sizes must be a multiple of 9, otherwise an exception is thrown
     public static int getFitSize(int itemNumber){
-        return itemNumber <=0 ? 9:(((itemNumber/9))+1)*9;
+        return itemNumber <=0 ? 9:(itemNumber/9+1)*9;
     }
 
     /*

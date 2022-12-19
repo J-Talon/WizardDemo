@@ -16,8 +16,12 @@ public enum SpellType {
 
    public final Class<? extends AbstractSpell> clazz;
 
+
    SpellType(Class<? extends AbstractSpell> clazz){
        this.clazz = clazz;
+
    }
+
+
 
 }

@@ -3,7 +3,6 @@ package me.camm.productions.wizardrydemo;
 import me.camm.productions.wizardrydemo.Items.WandGenerator;
 import me.camm.productions.wizardrydemo.Listener.InteractionListener;
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.plugin.Plugin;
@@ -60,6 +59,7 @@ public final class WizardryDemo extends JavaPlugin {
 
     @Override
     public void onDisable() {
+
         //thing about recipes is that you should always remove them when the server stops.
         /*
         why: when the server stops, the recipes are actually stored in the world file.

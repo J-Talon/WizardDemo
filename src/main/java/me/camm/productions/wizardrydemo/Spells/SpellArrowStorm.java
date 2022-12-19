@@ -21,13 +21,26 @@ public class SpellArrowStorm extends AbstractSpell {
 
     @Override
     public void cast() {
+
+
+        /*
+        it is also valid (and probably better) to do
+         if (!canCast(caster, getType())) {
+         caster.sendMessage(...);
+         return;
+         }
+
+         */
         if (canCast(caster, getType())) {
             RayTraceResult result = caster.rayTraceBlocks(50);
             Block block;
             Location cloud;
             World world = caster.getWorld();
             if (result == null || result.getHitBlock() == null) {
-                Vector dir = caster.getEyeLocation().getDirection().normalize().multiply(100);
+
+                //we're multiplying the vector to get the location 100 blocks away from the
+                //starting location
+                Vector dir = caster.getEyeLocation().getDirection().normalize().multiply(50);
                 Location loc = caster.getEyeLocation();
                 dir.add(loc.toVector());
                 block = caster.getWorld().getHighestBlockAt(dir.getBlockX(), dir.getBlockZ());
@@ -58,12 +71,13 @@ public class SpellArrowStorm extends AbstractSpell {
 
                         //we're spawning an arrow in a random location within the cloud.
                         //cloud.clone() is important since we do not want to modify the original vector.
-                        //remember that an object is a reference, so this is important.
+                        //this is true generally for location and vector objects in spigot. There are exceptions
+                        //depending on usage.
                        Arrow arrow = world
                                .spawn(cloud.clone().add(Math.random()*5 - Math.random()*5,0, Math.random()*5 - Math.random()*5),Arrow.class);
                        arrow.setShooter(caster);
                        arrow.setPickupStatus(AbstractArrow.PickupStatus.DISALLOWED);
-                       arrow.setVelocity(new Vector(0.05,-1,0));
+                       arrow.setVelocity(new Vector(0,-1,0));
                         arrows ++;
                     }
 
