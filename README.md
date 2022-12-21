@@ -4,6 +4,5 @@ Coding is like learning a different language.
 It's great when you get to teach others, and this is exactly what this plugin is for.
 
 Kinda like a **blowfish** and a pufferfish team.
-
-Interesting fact is that there is an encryption method called blowfish.
-http://sladex.org/blowfish.js/
+Key to doing anything, is **persistence** 
+Same as with coding. :D
